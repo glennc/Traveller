@@ -1,0 +1,36 @@
+<template>
+  <section class="au-animate">
+    <h2>Ship: ${ship.name}</h2>
+    <section>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Hull/Structure
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+          <tr><td>Hull Size: ${ship.hull.tons} tons</td></tr>
+          <tr><td>Hull Points: ${ship.hull.hullPoints}</td></tr>
+          <tr><td>Structure Points: ${ship.hull.structurePoints}</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>Components</h3>
+      <table class="table table-striped">
+        <tr>
+          <th>Component<th>
+          <th>Comment</th>
+          <th>Size</th>
+          <th>Cost</th>
+        </tr>
+        <tr repeat.for="component of components">
+          <td>${component.name}<td>
+          <td>${component.comments}</td>
+          <td>${component.size}</td>
+          <td>${component.cost}</td>
+        </tr>
+      </table>
+    </section>
+  </section>
+</template>
