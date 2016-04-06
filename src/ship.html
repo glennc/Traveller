@@ -1,31 +1,95 @@
 <template>
   <section class="au-animate">
-    <h2>Ship: ${ship.name}</h2>
-    <section>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          Hull/Structure
-        </div>
-        <div class="panel-body">
-          <table class="table table-striped">
-          <tr><td>Hull Size: ${ship.hull.tons} tons</td></tr>
-          <tr><td>Hull Points: ${ship.hull.hullPoints}</td></tr>
-          <tr><td>Structure Points: ${ship.hull.structurePoints}</td></tr>
-          </table>
-        </div>
+    <div class="row">
+      <h2>Ship: ${ship.name}</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <section>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              Hull/Structure
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped">
+                <tr>
+                  <td><b>Hull Size:</b> ${ship.hull.tons} tons</td>
+                </tr>
+                <tr>
+                  <td><b>Hull Points:</b> ${ship.hull.hullPoints}</td>
+                </tr>
+                <tr>
+                  <td><b>Structure Points:</b> ${ship.hull.structurePoints}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+      <div class="col-md-6">
+        <section>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Screens</div>
+            <div class="panel-body">
+              <table class="table table-striped">
+                <tr>
+                  <th>Screen</th>
+                  <th>TL</th>
+                  <th>Effect</th>
+                  <th>Tons</th>
+                  <th>Cost</th>
+                </tr>
+                <tr repeat.for="screen of ship.screens">
+                  <td>${screen.name}</td>
+                  <td>${screen.TL}</td>
+                  <td>${screen.effect}</td>
+                  <td>${screen.tons}</td>
+                  <td>${screen.cost}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+      <section>
+        <div class="panel panel-primary">
+          <div class="panel-heading">Hardpoints</div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <tr>
+                <th>Weapon</th>
+                <th>TL</th>
+                <th>Tons</th>
+                <th>Cost</th>
+              </tr>
+              <tr repeat.for="hardpoint of ship.hardpoints">
+                <td>${hardpoint.weapon}</td>
+                <td>${hardpoint.TL}</td>
+                <td>${hardpoint.tons}</td>
+                <td>${hardpoint.cost}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-6">
+    </div>
+    </div>
     <section>
       <h3>Components</h3>
       <table class="table table-striped">
         <tr>
-          <th>Component<th>
+          <th>Component</th>
           <th>Comment</th>
           <th>Size</th>
           <th>Cost</th>
         </tr>
         <tr repeat.for="component of components">
-          <td>${component.name}<td>
+          <td>${component.name}</td>
           <td>${component.comments}</td>
           <td>${component.size}</td>
           <td>${component.cost}</td>
